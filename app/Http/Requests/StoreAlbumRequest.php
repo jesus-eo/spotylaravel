@@ -23,6 +23,7 @@ class StoreAlbumRequest extends FormRequest
      */
     public function rules()
     {
+   /*  Aqui creamis la validación que utilizaremos después en el create */
         return [
             'titulo' => 'required|string|max:255',
             'autor' => 'required|string|max:255',

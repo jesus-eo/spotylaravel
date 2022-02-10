@@ -42,8 +42,12 @@ class AlbumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAlbumRequest $request)
     {
+        //Validamos la request con validate accediendo a la función rules de app/http/request/storeAlbumRequest que es la encargada de validar.
+        //Creamos un nuevo album y lo guardamos.
+        //Con file recuperamos los archivos cargados con el name 'portada'
+        //Si no desea que se asigne automáticamente un nombre de archivo a su archivo almacenado, puede usar el storeAsmétodo, que recibe la ruta, el nombre de archivo y el disco (opcional) como argumentos
         $validados = $request->validated();
         $album = new Album($validados);
         $album->save();
@@ -61,7 +65,7 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Album $album)
     {
         //
     }
@@ -72,7 +76,7 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Album $album)
     {
         //
     }
@@ -84,7 +88,7 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateAlbumRequest $request, Album $album)
     {
         //
     }
@@ -95,7 +99,7 @@ class AlbumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Album $album)
     {
         //
     }
