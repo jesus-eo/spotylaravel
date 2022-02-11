@@ -24,6 +24,6 @@ Route::get('/dashboard', function () {
 
 Route::resource('albumes', AlbumController::class)
     ->parameters(['albumes' => 'album']);
-    //Cuando visualizamos las rutas salga asi
+    //Cuando visualizamos las rutas salga asi albumes/{album} con php artisan route:list
 
 require __DIR__.'/auth.php';

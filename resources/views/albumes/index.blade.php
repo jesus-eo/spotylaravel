@@ -14,6 +14,8 @@
         <tbody>
             @foreach ($albumes as $album)
                 <tr>
+                    {{-- {{dd($albumes)}} --}}
+                    {{-- Si no se crea el enlace simbolico no funciona php artisan storage:link --}}
                     <td><img width="100" src="{{ asset('storage/portadas/' . $album->id . '.jpg') }}"/></td>
                     <td>{{ $album->titulo }}</td>
                     <td>{{ $album->autor }}</td>
