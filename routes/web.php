@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlbumController;
+use App\Http\Livewire\Contador;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,5 +26,18 @@ Route::get('/dashboard', function () {
 Route::resource('albumes', AlbumController::class)
     ->parameters(['albumes' => 'album']);
     //Cuando visualizamos las rutas salga asi albumes/{album} con php artisan route:list
+
+
+/* Comprobando peticiones con fetch */
+Route::get('/alpine', function () {
+    return view('alpine');
+});
+
+Route::post('/contact', function ($json) {
+    dd($json);
+});
+
+//Esto lleva al componente contador que esta en App/http/livewire/contador
+Route::get('/contador', Contador::class);
 
 require __DIR__.'/auth.php';
