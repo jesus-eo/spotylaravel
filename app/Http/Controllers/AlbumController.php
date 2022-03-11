@@ -49,6 +49,7 @@ class AlbumController extends Controller
         //Con file recuperamos los archivos cargados con el name 'portada'
         //Si no desea que se asigne automáticamente un nombre de archivo a su archivo almacenado, puede usar el storeAsmétodo, que recibe la ruta, el nombre de archivo y el disco que se encuentra en config/filesystem(opcional) como argumentos,
         //Se crea la carpeta portadas y se guarda en storage/app/public
+        // php artisan storage:link crea un enlace simbolico para poder ver desde fuera a las imagenes guardadas antes en store/app/public
         $validados = $request->validated();
         $album = new Album($validados);
         $album->save();
